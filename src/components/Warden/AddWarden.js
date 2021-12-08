@@ -17,7 +17,7 @@ class AddWarden extends Component {
       phoneNumber: "",
       email:"",
       lastName:"",
-      hostelId:"",
+      
       password:"",
       role:"",
       
@@ -46,7 +46,7 @@ class AddWarden extends Component {
       mobileNumber: this.state.mobileNumber,
       email:this.state.email,
       lastName:this.state.lastName,
-      hostelId:this.state.hostelId,
+      
       password:this.state.password,
       role:"warden",
     };
@@ -69,7 +69,7 @@ class AddWarden extends Component {
       <div>
         <div className="project">
           <div className="container">
-            <div className="row" style={{width:'800px', margin:'0 auto' ,marginTop:'100px'}}>
+            <div className="row" style={{width:'800px', margin:'0 auto' ,marginTop:'30px'}}>
               <div className="col-md-8 m-auto">
                 <h5 className="display-4 text-center">Add Warden </h5>
                 <hr />
@@ -84,6 +84,7 @@ class AddWarden extends Component {
                       
                       value={this.state.wardenid}
                       onChange={this.onChange}
+                      required
                     />
                     
                   </div>
@@ -96,6 +97,7 @@ class AddWarden extends Component {
                       
                       value={this.state.firstName}
                       onChange={this.onChange}
+                      required
                     />
                     
                   </div>
@@ -108,6 +110,7 @@ class AddWarden extends Component {
                       
                       value={this.state.lastName}
                       onChange={this.onChange}
+                      required
                     />
                    
                   </div>
@@ -120,6 +123,7 @@ class AddWarden extends Component {
                       
                       value={this.state.mobileNumber}
                       onChange={this.onChange}
+                      required
                     />
                     
                   </div>
@@ -133,21 +137,11 @@ class AddWarden extends Component {
                       
                       value={this.state.email}
                       onChange={this.onChange}
+                      required
                     />
                     
                   </div>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control form-control-lg "
-                      placeholder="Hostel Id"
-                      name="hostelId"
-                      
-                      value={this.state.hostelId}
-                      onChange={this.onChange}
-                    />
-                    
-                  </div>
+                 
                   <div className="form-group">
                     <input
                       type="password"
@@ -157,6 +151,7 @@ class AddWarden extends Component {
                       
                       value={this.state.password}
                       onChange={this.onChange}
+                      required
                     />
 
                   </div>

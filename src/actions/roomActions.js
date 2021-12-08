@@ -15,7 +15,8 @@ export const createRoom = (room, history) => async dispatch => {
 };
 
 export const getRooms =() => async dispatch => {
-  const res = await axios.get('http://localhost:8080/api/rooms');
+  const email = localStorage.getItem("email");
+  const res = await axios.get(`http://localhost:8080/api/rooms/${email}`);
   dispatch({
     type:GET_ROOMS,
     payload: res.data
@@ -78,15 +79,16 @@ export const getRooms =() => async dispatch => {
     
   };
   
-  export const getRoomForRegistration =(email, history) => async dispatch => {
+  export const getRoomForRegistration =(email) => async dispatch => {
     try {
       const res = await axios.get(`http://localhost:8080/api/student/email/${email}`);
-    dispatch({
-      type:GET_ROOM,
+      console.log("Test " +res);
+      dispatch({
+      type:GET_ROOMS,
       payload: res.data
     });
     } catch (error) {
-      
+      console.log("Error" +error);
     }
     
   };

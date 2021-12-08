@@ -71,7 +71,7 @@ import classnames from "classnames";
             <div className="container">
             <div className="row" style={{width:'800px', margin:'0 auto' ,marginTop:'100px'}}>
                 <div className="col-md-8 m-auto">
-                    <h5 className="display-4 text-center">Update Room</h5>
+                    <h5 className="display-4 text-center">Update Hostel</h5>
                     <hr />
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
@@ -79,35 +79,40 @@ import classnames from "classnames";
                              placeholder="Hostel Id"
                              name="hostelid"
                              value={this.state.hostelid} 
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg" 
                             placeholder="Hostel Name"
                             name="hostelName"
                             value={this.state.hostelName}
-                            onChange={this.onChange}/>
+                            onChange={this.onChange}
+                            required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg"
                              placeholder="Number Of Rooms"
                              name="numberOfRooms"
                              value={this.state.numberOfRooms}
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                         <input type="text" className="form-control form-control-lg"
                          placeholder="Hostel Type"
                          name="hostelType"
                          value={this.state.hostelType}
-                         onChange={this.onChange}/>
+                         onChange={this.onChange}
+                         required/>
                     </div>
                     <div className="form-group">
                     <input type="text" className="form-control form-control-lg"
                      placeholder="Warden Email"
                      name="email"
                      value={this.state.email}
-                     onChange={this.onChange}/>
+                     onChange={this.onChange}
+                     required/>
                 </div>
 
                         <input type="submit" className="btn btn-primary btn-block mt-4" />

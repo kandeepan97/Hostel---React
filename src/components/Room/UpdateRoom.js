@@ -11,10 +11,10 @@ import classnames from "classnames";
         super();
 
         this.state = {
-            hostelId: "",
+            hostelid: "",
             roomid: "",
             numberOfBeds: "",
-            hostelType:"",
+            gender:"",
             floorNumber:"",
             faculty:"",
             year:""
@@ -27,20 +27,20 @@ import classnames from "classnames";
 
     componentWillReceiveProps(nextProps) {
         const {
-            hostelId,
+            hostelid,
             roomid,
             numberOfBeds,
-            hostelType,
+            gender,
             floorNumber,
             faculty,
             year
         } = nextProps.room;
 
        this.setState({
-            hostelId,
+            hostelid,
             roomid,
             numberOfBeds,
-            hostelType,
+            gender,
             floorNumber,
             faculty,
             year
@@ -63,10 +63,10 @@ import classnames from "classnames";
 
          const updateRoom = {
 
-            hostelId:this.state.hostelId,
+            hostelid:this.state.hostelid,
             roomid:this.state.roomid,
             numberOfBeds:this.state.numberOfBeds,
-            hostelType:this.state.hostelType,
+            gender:this.state.gender,
             floorNumber:this.state.floorNumber,
             faculty:this.state.faculty,
             year:this.state.year
@@ -87,42 +87,48 @@ import classnames from "classnames";
                              placeholder="Room Id"
                              name="roomid"
                              value={this.state.roomid} 
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg" 
                             placeholder="Hostel Id"
-                            name="hostelId"
-                            value={this.state.hostelId}
-                            onChange={this.onChange}/>
+                            name="hostelid"
+                            value={this.state.hostelid}
+                            onChange={this.onChange}
+                            required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg"
                              placeholder="Number Of Beds"
                              name="numberOfBeds"
                              value={this.state.numberOfBeds}
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                         <input type="text" className="form-control form-control-lg"
-                         placeholder="Hostel Type"
-                         name="hostelType"
-                         value={this.state.hostelType}
-                         onChange={this.onChange}/>
+                         placeholder="Room Type"
+                         name="gender"
+                         value={this.state.gender}
+                         onChange={this.onChange}
+                         required/>
                     </div>
                     <div className="form-group">
                     <input type="text" className="form-control form-control-lg"
                      placeholder="Floor Number"
                      name="floorNumber"
                      value={this.state.floorNumber}
-                     onChange={this.onChange}/>
+                     onChange={this.onChange}
+                     required/>
                 </div>
                     <div className="form-group">
                     <input type="text" className="form-control form-control-lg"
                      placeholder="Faculty"
                      name="faculty"
                      value={this.state.faculty}
-                     onChange={this.onChange}/>
+                     onChange={this.onChange}
+                     required/>
                 </div>
                 
                 <div className="form-group">
@@ -130,7 +136,8 @@ import classnames from "classnames";
                  placeholder="Year"
                  name="year"
                  value={this.state.year}
-                 onChange={this.onChange}/>
+                 onChange={this.onChange}
+                 required/>
             </div>
 
 

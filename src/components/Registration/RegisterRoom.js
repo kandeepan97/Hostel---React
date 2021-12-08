@@ -20,6 +20,7 @@ class RegisterRoom extends Component {
       address:"",
       bankAddress:"",
       roomId: "",
+      selectedRoom: "",
       paymentId:"",
       paymentDate:"",
       status:"",
@@ -43,7 +44,7 @@ class RegisterRoom extends Component {
 
     console.log(this.state.roomId);
     
-    this.props.getRooms();
+    this.props.getRoomForRegistration(email);
   }
 
   
@@ -58,13 +59,20 @@ class RegisterRoom extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.value);
+    console.log(e.target.name);
+  }
+
+  onChangeRadio(e) {
+    this.setState({ "selectedRoom": e.target.value });
+
   }
   
-  onValueChange(event) {
-    this.setState({
-      selectedOption: event.target.value
-    });
-  }
+  // onValueChange(event) {
+  //   this.setState({
+  //     selectedOption: event.target.value
+  //   });
+  // }
 
 
   onSubmit(e) {
@@ -77,26 +85,26 @@ class RegisterRoom extends Component {
       distance:this.state.distance,
       address:this.state.address,
       bankAddress:this.state.bankAddress,
-      roomId: this.state.roomId,
-      numberOfBeds:this.state.numberOfBeds,
+      roomId: this.state.selectedRoom,
       paymentId:this.state.paymentId,
       paymentDate:this.state.paymentDate,
       status:"PENDING",
       email:localStorage.getItem("email"),
-      floorNumber:this.state.floorNumber,
-      availableBeds:this.state.availableBeds,
+      
 
     };
     console.log("Hello");
     console.log(myRoom);
 
-    this.props.registerRoom(myRoom, this.props.history);
+    this.props.registerRoom(myRoom, this.props.history, myRoom.roomId);
   }
 
   render() {
-
-    const  {rooms}  = this.props.room;
-   
+    console.log("Actual room property " + this.props.room);
+    console.log("Our needed array is " + JSON.stringify(this.props.room.room));
+    const {rooms}  = this.props.room;
+    console.log("Important " + JSON.stringify(rooms));
+    
     return (
       <div>
       <div className="container">
@@ -114,14 +122,18 @@ class RegisterRoom extends Component {
             name="firstName" 
             placeholder="First Name"
             value={this.state.firstName}
-            onChange={this.onChange}/>
+            onChange={this.onChange}
+            required
+            />
           </div>
           <div class="field">
             <input type="text"
              name="lastName" 
              placeholder="Last Name"
              value={this.state.lastName}
-             onChange={this.onChange}/>
+             onChange={this.onChange}
+             required
+             />
           </div>
         </div>
       </div>
@@ -137,6 +149,7 @@ class RegisterRoom extends Component {
             placeholder="Address"
             value={this.state.address}
             onChange={this.onChange}
+            required
             />
           </div>
           
@@ -147,6 +160,7 @@ class RegisterRoom extends Component {
             placeholder="Distance"
             value={this.state.distance}
             onChange={this.onChange}
+            required
             />
           </div>
         </div>
@@ -155,7 +169,9 @@ class RegisterRoom extends Component {
       <div class="two fields">
         <div class="field">
           <label>district</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" value={this.state.district}
+          onChange={this.onChange}
+          name = 'district'>
             <option value=""></option>
         <option value="Ampara">Ampara</option>
         <option value="Anuradhapura">Anuradhapura</option>
@@ -182,13 +198,12 @@ class RegisterRoom extends Component {
         <option value="Ratnapura">Ratnapura</option>
         <option value="Trincomalee">Trincomalee</option>
         <option value="Vavuniya">Vavuniya</option>
-        value={this.state.district}
-        onChange={this.onChange}
+        
         </select>
         </div>
         <div class="field">
           <label>province</label>
-          <select class="ui fluid dropdown">
+          <select class="ui fluid dropdown" value={this.state.province} onChange={this.onChange} name = 'province'>
             <option value=""></option>
         <option value="Central">Central</option>
         <option value="Eastern">Eastern</option>
@@ -199,8 +214,7 @@ class RegisterRoom extends Component {
         <option value="Southern">Southern</option>
         <option value="Uva">Uva</option>
         <option value="Westren">Westren</option>
-        value={this.state.province}
-        onChange={this.onChange}
+        
         </select>
         </div>
         </div>
@@ -215,6 +229,7 @@ class RegisterRoom extends Component {
           placeholder="Bank Address"
           value={this.state.bankAddress}
           onChange={this.onChange}
+          required
           />
         </div>
       </div>
@@ -227,6 +242,7 @@ class RegisterRoom extends Component {
           placeholder="paymentId"
           value={this.state.paymentId}
           onChange={this.onChange}
+          required
           />
         </div>
         
@@ -238,6 +254,7 @@ class RegisterRoom extends Component {
             placeholder="Date"
             value={this.state.date}
             onChange={this.onChange}
+            required
             /> 
             </div>
             
@@ -246,51 +263,6 @@ class RegisterRoom extends Component {
           <br/>
       <h4 class="ui dividing header">Select Your Room</h4>
       <br/>
-      <div class="two fields">
-        <div class="field">
-          <label>Room</label>
-          <select class="ui fluid dropdown" >
-          {/*{this.state.roomId.map(time => {
-            return (
-              <option value={time}> {time} </option>
-            )
-          })}*/}
-        </select>
-        </div>
-        </div>
-
-        <div class="field">
-        
-        <div class="three fields">
-          <div class="field">
-          <label>Floor Number</label>
-            <input type="text"
-             name="floorNumber"
-            placeholder="Floor Number "
-            value={this.state.floorNumber}
-            onChange={this.onChange}/>
-          </div>
-          <div class="field">
-          <label>Number Of Beds</label>
-            <input type="text" 
-            name="numberOfBeds" 
-            placeholder="Number Of Beds"
-            value={this.state.numberOfBeds}
-            onChange={this.onChange}/>
-          </div>
-          <div class="field">
-          <label>Available Beds</label>
-            <input type="text" 
-            name="availableBeds" 
-            placeholder="Available Beds"
-            value={this.state.availableBeds}
-            onChange={this.onChange}
-            />
-          </div>
-        </div>
-      </div>
-
-      <br/>
 
       <table class="ui compact celled definition table">
       <thead>
@@ -298,6 +270,7 @@ class RegisterRoom extends Component {
           
           <th>Room Id</th>
           <th>Hostel Id</th>
+          <th>Hostel Name</th>
           <th>Floor No</th>
           <th>Number Of Beds</th>
           <th>Available Beds</th>
@@ -308,12 +281,13 @@ class RegisterRoom extends Component {
 
               <tbody>
               <tr>
-                <td><input type="radio" name={room.roomId} value={room.roomId} checked={this.state.selectedOption === room.roomId}
-                onChange={this.onValueChange} ></input></td>
-                <td>{room.hostelId}</td>
+                <td><input type="radio" name="selectedRoom" value={room.roomid}  onChange={this.onChange}
+               />{"   " + room.roomid}</td>
+                <td>{room.hostel.hostelid}</td>
+                <td>{room.hostel.hostelName}</td>
                 <td>{room.floorNumber}</td>
-                <td>{room.hostelId}</td>
-                <td>{room.floorNumber}</td>
+                <td>{room.numberOfBeds}</td>
+                <td>{room.availableBeds}</td>
                 </tr>
                 </tbody> 
              
@@ -344,7 +318,7 @@ RegisterRoom.propTypes = {
   registerRoom: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   room: PropTypes.object.isRequired,
-  getRooms: PropTypes.func.isRequired,
+  getRoomForRegistration: PropTypes.func.isRequired,
   deleteRoom: PropTypes.func.isRequired
 };
 

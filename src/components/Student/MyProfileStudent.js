@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import {Button, ButtonToolbar} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
  class UpdateStudent extends Component {
 
@@ -169,13 +170,7 @@ import {Button, ButtonToolbar} from "react-bootstrap";
                          onChange={this.onChange}/>
                     </div>
                 </div>
-                <div className="form-group">
-                <input type="text" className="form-control form-control-lg"
-                 placeholder="Hostel Id"
-                 name="hostelId"
-                 value={this.state.hostelId}
-                 onChange={this.onChange}/>
-                </div>
+                
                  
         <div className="form-button-group">
         <ButtonToolbar>
@@ -190,15 +185,16 @@ import {Button, ButtonToolbar} from "react-bootstrap";
             >
                 Update
             </Button>
-            
+            <Link to = '/studentDashboard'>
             <Button
                 bsSize="small"
-                style={{"width": "30%","backgroundColor": "#999",}}
+                style={{"width": "250%","backgroundColor": "#999",}}
                 type="button"
-                onClick={() => {}}
+                
             >
                 Cancel
             </Button>
+            </Link>
         </ButtonToolbar>
     </div>
           </form>

@@ -15,7 +15,17 @@ export const updateStudent = (student, history) => async dispatch => {
 };
 
 
+export const getStudentsss =() => async dispatch => {
+  const email = localStorage.getItem("email");
+const res = await axios.get(`http://localhost:8080/api/students/${email}`);
+dispatch({
+  type:GET_STUDENTS,
+  payload: res.data
+});
+}
+
 export const getStudents =() => async dispatch => {
+  
 const res = await axios.get('http://localhost:8080/api/students');
 dispatch({
   type:GET_STUDENTS,
@@ -23,9 +33,31 @@ dispatch({
 });
 }
 
+export const getRegistrationsss =(email) => async dispatch => {
+  const res = await axios.get(`http://localhost:8080/api/registrationss/${email}`);
+  dispatch({
+    type:GET_STUDENTS,
+    payload: res.data
+  });
+  }; 
+
 export const getStudent =(id, history) => async dispatch => {
   try {
     const res = await axios.get(`http://localhost:8080/api/student/${id}`);
+  dispatch({
+    type:GET_STUDENT,
+    payload: res.data
+  });
+  } catch (error) {
+    history.push("/wardenDashboard");
+  }
+  
+};
+
+export const getStudentForWarden =(id, history) => async dispatch => {
+  try {
+    const res = await axios.get(`http://localhost:8080/api/student/${id}`);
+    history.push("/wardenDashboard");
   dispatch({
     type:GET_STUDENT,
     payload: res.data

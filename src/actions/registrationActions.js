@@ -18,11 +18,13 @@ export const getRegistrationss =(id) => async dispatch => {
       });
       }; 
 
-    export const registerRoom = (registration, history) => async dispatch => {
+    export const registerRoom = (registration, history, id) => async dispatch => {
       try {
         const res = await axios.post('http://localhost:8080/api/registration', registration);
+        await axios.put(`http://localhost:8080/api/room/${id}`);
+
         history.push("/studentDashboard");
-         // console.log("hostel");
+         console.log(registration);
       } catch (err) {
         dispatch({
           type: GET_ERRORS,
@@ -31,10 +33,10 @@ export const getRegistrationss =(id) => async dispatch => {
       } 
     };
 
-    export const approveRegistration = (id, history) => async dispatch => {
+    export const approveRegistration = (id) => async dispatch => {
      
         const res = await axios.put(`http://localhost:8080/api/registration/accepted/${id}`);
-        //history.push("/manageRegistration");
+        // history.push("/manageRegistration");
          // console.log("hostel");
     };
 
@@ -53,5 +55,12 @@ export const getRegistrationss =(id) => async dispatch => {
     });
     }; 
   
-
+    export const getRegistrationsByEmail =() => async dispatch => {
+      const res = await axios.get(`http://localhost:8080/api/registrations/${"email"}`);
+      dispatch({
+        type:GET_REGISTRATIONS,
+        payload: res.data
+      });
+      }; 
     
+     

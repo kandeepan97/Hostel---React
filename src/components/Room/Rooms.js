@@ -30,6 +30,10 @@ class Rooms extends Component {
           <th>Room Id</th>
           <th>Hostel Id</th>
           <th>Floor No</th>
+          <th>Year</th>
+          <th>Faculty</th>
+          <th>No Of Beds</th>
+          <th>Type</th>
           <th>Manage Rooms</th>
         </tr>
       </thead>
@@ -39,8 +43,12 @@ class Rooms extends Component {
               <tbody>
               <tr>
                 <td>{room.roomid}</td>
-                <td>{room.hostelId}</td>
+                <td>{room.hostelid}</td>
                 <td>{room.floorNumber}</td>
+                <td>{room.year}</td>
+                <td>{room.faculty}</td>
+                <td>{room.numberOfBeds}</td>
+                <td>{room.gender}</td>
                 <td>
                 <div class="extra content">
                 <div class="ui two buttons">

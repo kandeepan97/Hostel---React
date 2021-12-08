@@ -15,6 +15,9 @@ export const DELETE_HOSTEL = "DELETE_HOSTEL";
 export const GET_ADMIN = "GET_ADMIN";
 export const GET_HOSTELID = "GET_HOSTELID";
 export const LOGOUT = 'LOGOUT';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 export const SET_CURRENT_STUDENT = "SET_CURRENT_STUDENT";
 

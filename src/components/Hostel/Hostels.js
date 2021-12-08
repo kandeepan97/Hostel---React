@@ -28,6 +28,7 @@ class Hostels extends Component {
           <th>Hostel Id</th>
           <th>Hostel Name</th>
           <th>Hostel Type</th>
+          <th>Warden Email</th>
           <th>Manage Hostels</th>
         </tr>
       </thead>
@@ -36,9 +37,10 @@ class Hostels extends Component {
 
     <tbody>
     <tr>
-      <td>{hostel.hostelId}</td>
+      <td>{hostel.hostelid}</td>
       <td>{hostel.hostelName}</td>
-      <td>{hostel.hostelName}</td>
+      <td>{hostel.hostelType}</td>
+      <td>{hostel.email}</td>
       <td>
       <div class="extra content">
       <div class="ui two buttons">

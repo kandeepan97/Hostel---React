@@ -21,48 +21,53 @@ class Wardens extends Component {
     const { wardens } = this.props.warden;
     return (
       
-      <div className="container">
-        <div className="card card-body bg-light mb-3">
-        <div className="row">
-          
-          <div className="col-lg-2 col-md-2 col-4">
-          <h3>Wardens</h3>
-          </div>
+    <div className="container">
+      <div className="card card-body bg-light mb-3">
+          <div className="row">
+                  <div className="col-lg-2 col-md-2 col-4">
+                  <h3>Wardens</h3>
+                  </div>
           </div>
           <hr/>
 
         {wardens.map(warden => (
       
-          <div class="ui list">
-          <div class="item">
-             <img class="ui avatar image" src="/images/avatar2/small/rachel.png"/>
-             <div class="content">
-               <h3 class="header">{warden.firstName +"_"+ warden.lastName}</h3>
-               <div class="description">{warden.email} <h5><h4>
-               {warden.wardenid}</h4></h5>
-             </div>
-             <div>{warden.hostelId}</div>
+        <div class="ui list" style={{backgroundColor:'#e3e3e3', padding:'20px', marginBottom:'10px', }}>
+         <div class="item" style={{display: "flex", justifyContent: "space-between",}}>
+          <img class="ui avatar image" style={{height: '100%', width: '80px'}} src="https://www.w3schools.com/howto/img_avatar.png"/>
+                         <div class="content" style={{paddingLeft: '5px'}}>
+                            <h3 class="header" style={{textTransform: "uppercase", marginBottom:"10px"}} >{warden.firstName +"_"+ warden.lastName}</h3>
+                                  <div class="description">
+                                        <h5>
+                                        {warden.email} 
+                                        </h5>
+                                        {warden.wardenid}
+                                        
+                                  </div>
+                                  <div>
+                                      {warden.hostelId}
+                                  </div>
+                          </div>
 
              
-             <div class="extra content">
-      <div class="ui two buttons">
-        <div class="ui basic green button">
-        <Link to={`/updateWarden/${warden.wardenid}`}>
-        Update
-        </Link>
+                        <div class="extra content">
+                            <div class="ui two buttons" >
+                              <div class="ui basic green button" style={{margin:'15px'}}>
+                                  <Link to={`/updateWarden/${warden.wardenid}`}>
+                                    Update
+                                  </Link>
+                              </div>
+                            <div class="ui basic red button" style={{margin:'15px'}} onClick={this.onDeleteClick.bind(this, warden.wardenid)}>
+                            Delete
+                            </div>
+                        </div>    
         </div>
-        <div class="ui basic red button">Delete</div>
       </div>
-    </div>
-             
-             
-             </div>
-          </div>
-          </div>
+   </div>
 
           ))}
-        </div>
-      </div>
+  </div>
+</div>
 
         
       

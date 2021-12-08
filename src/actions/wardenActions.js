@@ -59,6 +59,19 @@ export const updateWarden = (warden, history) => async dispatch => {
   } 
 };
 
+export const updateWardenForMyProfile = (warden, history) => async dispatch => {
+  try {
+    const res = await axios.put('http://localhost:8080/api/warden', warden);
+    history.push("/wardenDashboard");
+      console.log("warden");
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
+  } 
+};
+
 export const deleteWarden =(id,history)  => async dispatch => {
   if (
     window.confirm(

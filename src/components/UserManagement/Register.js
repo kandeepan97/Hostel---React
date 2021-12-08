@@ -161,7 +161,7 @@ class Register extends Component {
                       alignItems:'center',
                       justifyContent:'space-evenly',
                               }}>
-              <div className="form-group" style={{ width:'300px'}}>
+              <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -170,12 +170,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.firstName}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.firstName.length > 0 && (
                     <span className="errorMessage">{formErrors.firstName}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -184,12 +185,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.lastName}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.lastName.length > 0 && (
                     <span className="errorMessage">{formErrors.lastName}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -198,12 +200,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.studentid}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.studentid.length > 0 && (
                     <span className="errorMessage">{formErrors.studentid}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="email"
                     className="form-control form-control-lg"
@@ -212,12 +215,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.email}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.email.length > 0 && (
                     <span className="errorMessage">{formErrors.email}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -226,12 +230,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.mobileNumber}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.mobileNumber.length > 0 && (
                     <span className="errorMessage">{formErrors.mobileNumber}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                 <select name='faculty' value={this.state.faculty} onChange={this.onChange} className="form-control form-control-lg">
                 <option value='0'>Faculty</option>
                 <option value='agri'>Agricultural Sciences</option>
@@ -246,7 +251,7 @@ class Register extends Component {
                 <span className="errorMessage">{formErrors.faculty}</span>
               )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -255,12 +260,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.department}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.department.length > 0 && (
                     <span className="errorMessage">{formErrors.department}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -269,12 +275,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.address}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.address.length > 0 && (
                     <span className="errorMessage">{formErrors.address}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                 <select name='year' value={this.state.year} onChange={this.onChange} className="form-control form-control-lg">
                 <option value='0'>Year</option>
                 <option value='1st'>1st Year</option>
@@ -287,7 +294,7 @@ class Register extends Component {
               )}
                 </div>
 
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                 <select name='gender' value={this.state.gender} onChange={this.onChange} className="form-control form-control-lg">
                 <option value='0'>Gender</option>
                 <option value='male'>Male</option>
@@ -297,7 +304,7 @@ class Register extends Component {
                 <span className="errorMessage">{formErrors.gender}</span>
               )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="password"
                     className="form-control form-control-lg"
@@ -306,12 +313,13 @@ class Register extends Component {
                     noValidate
                     value={this.state.password}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.password.length > 0 && (
                     <span className="errorMessage">{formErrors.password}</span>
                   )}
                 </div>
-                <div className="form-group" style={{ width:'300px'}}>
+                <div className="form-group" style={{ width:'600px'}}>
                   <input
                     type="password"
                     className="form-control form-control-lg"
@@ -320,13 +328,14 @@ class Register extends Component {
                     noValidate
                     value={this.state.confirmPassword}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.confirmPassword.length > 0 && (
                     <span className="errorMessage">{formErrors.confirmPassword}</span>
                   )}
                 </div>
                   </div>
-                <input type="submit"  style={{ width:'300px' , margin:'0 auto'}} className="btn btn-info btn-block mt-4" />
+                <input type="submit"  style={{ width:'600px' , margin:'0 auto'}} className="btn btn-info btn-block mt-4" />
 
               </form>
             </div>

@@ -4,7 +4,7 @@ import { GET_ERRORS,GET_HOSTELS,GET_HOSTEL,DELETE_HOSTEL } from "./types";
 export const createHostel = (hostel, history) => async dispatch => {
   try {
     const res = await axios.post('http://localhost:8080/api/hostel', hostel);
-    history.push("/wardenDashboard");
+    history.push("/adminDashboard");
       console.log("hostel");
   } catch (err) {
     dispatch({
@@ -43,7 +43,7 @@ catch(error){
   export const updateHostel = (hostel, history) => async dispatch => {
     try {
       const res = await axios.put('http://localhost:8080/api/hostel', hostel);
-      history.push("/wardenDashboard");
+      history.push("/adminDashboard");
         console.log("hostel");
     } catch (err) {
       dispatch({

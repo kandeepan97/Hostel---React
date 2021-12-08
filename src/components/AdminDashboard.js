@@ -9,7 +9,7 @@ import AddHostelButton from "./Hostel/AddHostelButton";
 import ViewHostelButton from "./Hostel/ViewHostelButton";
 import ViewRegistrationButton from "./Registration/ViewSucessfulRegistrationButton";
 import MyProfileButton from "./Admin/MyProfileButton";
-
+import ResetPasswordButton from "./ResetPassword/ResetPasswordButton";
 import {ReactComponent as Room} from '../assets/room.svg';
 import {ReactComponent as Student} from '../assets/student1.svg';
 import {ReactComponent as Hostel} from '../assets/hostal.svg';
@@ -21,7 +21,16 @@ import {ReactComponent as WardenView} from '../assets/dfgdg.svg';
 
 class AdminDashboard extends Component {
 
-
+  componentDidMount() {
+    const reloadCount = sessionStorage.getItem('reloadCount');
+    if (reloadCount < 1) {
+      sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+      window.location.reload(false);
+    } else {
+      sessionStorage.removeItem('reloadCount');
+    }
+    
+  }
 
   render() {
     return (
@@ -40,25 +49,8 @@ class AdminDashboard extends Component {
                   margin: '12px',
 
               }}>
+             
               
-              <div style={{
-                boxShadow: ' 0px 12px 32px #383B470F',
-                width: '262px',
-                height: '246px',
-                textAlign: 'center',
-                background: '#FFFFFF 0% 0% no-repeat padding-box',
-                border: '0.24px solid #FFFFFF',
-                borderRadius: '12px',
-                opacity: '1',
-                display:'flex',
-                justifyContent:'center',
-                alignItems:'center',
-                flexDirection:'column',
-
-              }}>
-                <div style={{width:'75px',height:'75px' ,margin:'10px'}}> <Student/></div>
-
-                <MyProfileButton/></div>
 
                 
                 
@@ -112,7 +104,10 @@ class AdminDashboard extends Component {
     
                   }}>
                   
-
+                  
+    
+                    <ResetPasswordButton/>
+  
                   
                
 

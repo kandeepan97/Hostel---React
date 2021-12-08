@@ -20,10 +20,10 @@ class ManageRegistrations extends Component {
   <thead>
     <tr>
       <th>Reg Id</th>
-      <th>Registration Date</th>
-      <th>E-mail</th>
-	    <th>hostel Id</th>
       <th>Room Id</th>
+      <th>Email</th>
+	    <th>Payment Date</th>
+      <th>Distance</th>
       <th>Payment Id</th>
     </tr>
   </thead>
@@ -33,10 +33,10 @@ class ManageRegistrations extends Component {
   <tbody>
     <tr>
       <td>{registration.registrationid}</td>
-      <td>{registration.registrationDate}</td>
+      <td>{registration.roomId}</td>
       <td>{registration.email}</td>
-	    <td>{registration.hostelId}</td>
-	    <td>{registration.roomId}</td>
+	    <td>{registration.paymentdate}</td>
+	    <td>{registration.distance}</td>
       <td>{registration.paymentId}</td>
     </tr>
    </tbody> 

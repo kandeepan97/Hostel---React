@@ -6,6 +6,7 @@ import studentReducer from "./studentReducer";
 import hostelReducer from "./hostelReducer";
 import registrationReducer from "./registrationReducer";
 import securityReducers from "./securityReducers";
+import alert from './alert';
 
 
 export default combineReducers({
@@ -16,6 +17,6 @@ export default combineReducers({
   student: studentReducer,
   hostel:hostelReducer,
   registration:registrationReducer,
-  security:securityReducers
-
+  security:securityReducers,
+  alert: alert
 });

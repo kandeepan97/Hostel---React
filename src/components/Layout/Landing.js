@@ -1,3 +1,4 @@
+import { blue } from "@material-ui/core/colors";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import home from "../../assets/home.jpg"
@@ -5,6 +6,16 @@ import user from "../../assets/user2.png"
 
 class Landing extends Component {
   
+  componentDidMount() {
+    const reloadCount = sessionStorage.getItem('reloadCount');
+    if (reloadCount < 1) {
+      sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+      window.location.reload(false);
+    } else {
+      sessionStorage.removeItem('reloadCount');
+    }
+  }
+
   render() {
 
     return (
@@ -16,7 +27,7 @@ class Landing extends Component {
                 <div>
                   <div style={{       zIndex: 2,
                     borderRadius:' 12px',
-                    top: '214px',
+                    top: '64px',
                     width: '662px',
                     padding:'40px',
                     right: '0px',
@@ -95,7 +106,12 @@ class Landing extends Component {
                 <Link className="btn btn-lg btn-secondary mr-2" to="/login">
                   Login
                 </Link>
+                <br/>
+                <Link class="card-text" style={{fontSize: '30px', color:"black"}} to="/ForgetPassword">
+                Forget Password
+                </Link>
                 </div>
+
               </div>
             </div>
           </div>
@@ -103,9 +119,15 @@ class Landing extends Component {
 
      <div style={{width:'600px',margin:'0 auto',textAlign:'center'}}>
 
-     <h4> Our Vision</h4>
-
-      <p>Sabaragamuwa University of SriLanka</p>
+     <div class="card">
+     <div class="card-header" style={{fontSize: '30px'}}>
+     About
+     </div>
+     <div class="card-body">
+       <p class="card-text" style={{fontSize: '20px'}}>Our system enables students to select and register hostel rooms, and also  Allows warden to manage hostel records easily</p>
+       
+     </div>
+   </div>
 
 
      </div>

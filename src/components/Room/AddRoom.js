@@ -61,7 +61,7 @@ class AddRoom extends Component {
       <div>
         <div className="project">
           <div className="container">
-            <div className="row" style={{width:'800px', margin:'0 auto' ,marginTop:'100px'}}>
+            <div className="row" style={{width:'800px', margin:'0 auto' ,marginTop:'30px'}}>
               <div className="col-md-8 m-auto">
                 <h5 className="display-4 text-center">Create Hostel Rooms </h5>
                 <hr />
@@ -74,6 +74,7 @@ class AddRoom extends Component {
                       name="roomid"
                       value={this.state.roomid}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
                   <div className="form-group">
@@ -84,6 +85,7 @@ class AddRoom extends Component {
                       name="hostelid"
                       value={this.state.hostelid}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
                   <div className="form-group">
@@ -94,6 +96,7 @@ class AddRoom extends Component {
                       name="numberOfBeds"
                       value={this.state.numberOfBeds}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
                   <div className="form-group">
@@ -104,17 +107,16 @@ class AddRoom extends Component {
                       name="floorNumber"
                       value={this.state.floorNumber}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
-                  <div className="form-group">
-                    <input
-                    type="text"
-                      className="form-control form-control-lg"
-                      placeholder="Gender"
-                      name="gender"
-                      value={this.state.gender}
-                      onChange={this.onChange}
-                    />
+                  <div className="form-group" style={{ width:'500px'}}>
+                  <select name='gender' value={this.state.gender} onChange={this.onChange} className="form-control form-control-lg">
+                  <option value='0'>Gender</option>
+                  <option value='male'>Male</option>
+                  <option value='female'>Female</option>
+                </select>
+                
                   </div>
                   <div className="form-group">
                   <select name='faculty' value={this.state.faculty} onChange={this.onChange} className="form-control form-control-lg">
@@ -127,15 +129,15 @@ class AddRoom extends Component {
                   <option value='social'>Social Sciences & languages</option>
                   <option value='technology'>Technology</option>
                 </select>
-                  </div><div className="form-group">
-                  <input
-                  type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Year"
-                    name="year"
-                    value={this.state.year}
-                    onChange={this.onChange}
-                  />
+                  </div>
+                  <div className="form-group" style={{ width:'500px'}}>
+                <select name='year' value={this.state.year} onChange={this.onChange} className="form-control form-control-lg">
+                <option value='0'>Year</option>
+                <option value='1st'>1st Year</option>
+                <option value='2nd'>2nd Year</option>
+                <option value='3rd'>3rd Year</option>
+                <option value='4th'>4th Year</option>
+                </select>
                 </div>
                   
                 

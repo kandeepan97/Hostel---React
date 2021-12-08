@@ -20,11 +20,14 @@ import Landing from "./components/Layout/Landing";
 import UpdateWarden from "./components/Warden/UpdateWarden";
 import UpdateRoom from "./components/Room/UpdateRoom";
 import UpdateStudent from "./components/Student/UpdateStudent";
+import ViewStudent from "./components/Student/ViewStudents";
 import AddHostel from "./components/Hostel/AddHostel";
 import Hostels from "./components/Hostel/Hostels";
 import UpdateHostel from "./components/Hostel/UpdateHostel";
 import Registrations from "./components/Registration/ManageRegistrations";
 import Login from "./components/UserManagement/Login";
+import ForgetPassword from "./components/UserManagement/ForgetPassword";
+import ResetForForgetPassword from "./components/UserManagement/ResetForForgetPassword";
 import RegisterRoom from "./components/Registration/RegisterRoom";
 import UpdateAdmin from "./components/Admin/UpdateAdmin";
 import ManageRegistrations from "./components/Registration/Registrations";
@@ -32,7 +35,8 @@ import MyProfileButton from "./components/Warden/MyprofileButton";
 import MyProfileWarden from "./components/Warden/MyProfileWarden";
 import MyProfileStudent from "./components/Student/MyProfileStudent";
 import MyProfileAdmin from "./components/Admin/MyProfileAdmin";
-
+import ResetPassword from "./components/ResetPassword/ResetPassword";
+import Alert from './components/Layout/Alert';
 
 
 class App extends Component {
@@ -46,10 +50,12 @@ class App extends Component {
           {
             //Public routes
           }
-
+          <Alert />
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/forgetPassword" component={ForgetPassword} />
+          <Route exact path="/resetForForgetPassword/:token" component={ResetForForgetPassword} />
           
           {
             //Private routes
@@ -67,6 +73,7 @@ class App extends Component {
           <Route exact path="/updateWarden/:id" component={UpdateWarden} />
           <Route exact path="/updateRoom/:id" component={UpdateRoom} />
           <Route exact path="/updateStudent/:id" component={UpdateStudent} />
+          <Route exact path="/viewStudent/:id" component={ViewStudent} />
           <Route exact path="/viewStudent" component={Students} />
           <Route exact path="/signUp" component={Register} /> 
           <Route exact path="/addHostel" component={AddHostel} /> 
@@ -79,6 +86,7 @@ class App extends Component {
           <Route exact path="/myProfileWarden" component={MyProfileWarden}  />
           <Route exact path="/myProfileAdmin" component={MyProfileAdmin}  />
           <Route exact path="/myProfileStudent" component={MyProfileStudent}  />
+          <Route exact path="/resetPassword" component={ResetPassword}  />
         
 
         </div>

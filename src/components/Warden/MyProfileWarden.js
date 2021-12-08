@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
-import { getWardenByEmail,updateWarden } from "../../actions/wardenActions";
+import { getWardenByEmail,updateWarden,updateWardenForMyProfile } from "../../actions/wardenActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import {Button, ButtonToolbar} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
  class UpdateWarden extends Component {
 
@@ -73,7 +74,7 @@ import {Button, ButtonToolbar} from "react-bootstrap";
             hostelId:this.state.hostelId,
             password:this.state.password
          };
-         this.props.updateWarden(updateWarden,this.props.history);
+         this.props.updateWardenForMyProfile(updateWarden,this.props.history);
      }
     render() {
         return (
@@ -89,50 +90,43 @@ import {Button, ButtonToolbar} from "react-bootstrap";
                              placeholder="Warden Id"
                              name="wardenid"
                              value={this.state.wardenid} 
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg" 
                             placeholder="First Name"
                             name="firstName"
                             value={this.state.firstName}
-                            onChange={this.onChange}/>
+                            onChange={this.onChange}
+                            required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg"
                              placeholder="Last Name"
                              name="lastname"
                              value={this.state.lastName}
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                         <input type="text" className="form-control form-control-lg"
                          placeholder="Mobile Number"
                          name="mobileNumber"
                          value={this.state.mobileNumber}
-                         onChange={this.onChange}/>
+                         onChange={this.onChange}
+                         required/>
                     </div>
                     <div className="form-group">
                     <input type="text" className="form-control form-control-lg"
                      placeholder="Email"
                      name="email"
                      value={this.state.email}
-                     onChange={this.onChange}/>
+                     onChange={this.onChange}
+                     required/>
                 </div>
-                <div className="form-group">
-                <input type="text" className="form-control form-control-lg"
-                 placeholder="Hostel Id"
-                 name="hostelId"
-                 value={this.state.hostelId}
-                 onChange={this.onChange}/>
-            </div>
-            <div className="form-group">
-            <input type="text" className="form-control form-control-lg" 
-            placeholder="Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.onChange}/>
-        </div>
+                
+        
                         
         <div className="form-button-group">
         <ButtonToolbar>
@@ -146,18 +140,20 @@ import {Button, ButtonToolbar} from "react-bootstrap";
                         "width": "30%"
                     }}
                 type="submit"
+                onClick={() => {}}
             >
                 Update
             </Button>
             
+            <Link to = '/wardenDashboard'>
             <Button
                 bsSize="small"
-                style={{"width": "30%","backgroundColor": "#999",}}
+                style={{"width": "250%","backgroundColor": "#999","margin-left": "20px"}}
                 type="button"
-                onClick={() => {}}
             >
                 Cancel
             </Button>
+            </Link>
         </ButtonToolbar>
     </div>
           </form>
@@ -172,7 +168,8 @@ import {Button, ButtonToolbar} from "react-bootstrap";
 UpdateWarden.propTypes = {
     getWardenByEmail: PropTypes.func.isRequired,
     updateWarden:PropTypes.func.isRequired,
-    warden: PropTypes.object.isRequired
+    warden: PropTypes.object.isRequired,
+    updateWardenForMyProfile:PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -181,5 +178,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {getWardenByEmail,updateWarden} 
+    {getWardenByEmail,updateWarden,updateWardenForMyProfile} 
     )(UpdateWarden);

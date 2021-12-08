@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getRegistrationss } from "../../actions/registrationActions";
 import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import {Link, Redirect } from "react-router-dom";
 import ApprovalCard from '../../common/ApprovalCard'
 import { approveRegistration,rejectRegistration } from "../../actions/registrationActions";
 
@@ -15,10 +15,12 @@ class Registrations extends Component {
 
   onApproveClick = (id) => {
     this.props.approveRegistration(id);
+    window.location.reload(false);
   };
 
   onRejectClick = (id) => {
     this.props.rejectRegistration(id);
+    window.location.reload(false);
   };
 
   render() {
@@ -32,10 +34,10 @@ class Registrations extends Component {
   <thead>
     <tr>
       <th>Reg Id</th>
-      <th>Registration Date</th>
-      <th>E-mail</th>
-	    <th>hostel Id</th>
       <th>Room Id</th>
+      <th>Email</th>
+      <th>Payment Date</th>
+      <th>Distance</th>
       <th>Payment Id</th>
       <th>Manage Registrations</th>
     </tr>
@@ -46,10 +48,10 @@ class Registrations extends Component {
   <tbody>
     <tr>
       <td>{registration.registrationid}</td>
-      <td>{registration.registrationDate}</td>
+      <td>{registration.roomId}</td>
       <td>{registration.email}</td>
-	    <td>{registration.hostelId}</td>
-	    <td>{registration.roomId}</td>
+      <td>{registration.paymentDate}</td>
+      <td>{registration.distance}</td>
       <td>{registration.paymentId}</td>
       <td><div class="extra content">
       <div class="ui two buttons">

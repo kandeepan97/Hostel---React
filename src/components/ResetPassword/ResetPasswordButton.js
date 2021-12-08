@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {ReactComponent as View} from '../../assets/hostal.svg';
+import {ReactComponent as Student} from '../../assets/student1.svg';
+import { LockClosedOutline } from 'react-ionicons'
 
-const RegisterRoomButton = () => {
+
+const ResetPasswordButton = () => {
+
   return (
-    <React.Fragment>
+    
     <div style={{
       boxShadow: ' 0px 12px 32px #383B470F',
       width: '262px',
@@ -20,13 +23,19 @@ const RegisterRoomButton = () => {
       flexDirection:'column',
 
     }}>
-      <div style={{width:'75px',height:'75px',margin:'10px'}}> <View/></div>
-      <Link to="/registerRoom" className="btn btn-lg btn-info">
-        Register My Room
+       <LockClosedOutline
+      color={'#00000'} 
+      height="100px"
+      width="100px"
+    />
+    
+      <Link to="/resetPassword" className="btn btn-lg btn-info" style = {{marginTop:"10px"}}>
+        Reset Password 
       </Link>
       </div>
-    </React.Fragment>
+    
   );
 };
 
-export default RegisterRoomButton;
+
+export default ResetPasswordButton;

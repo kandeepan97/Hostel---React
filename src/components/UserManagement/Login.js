@@ -91,6 +91,7 @@ class Login extends Component {
                     noValidate
                     value={this.state.email}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.email.length > 0 && (
                     <span className="errorMessage">{formErrors.email}</span>
@@ -106,6 +107,7 @@ class Login extends Component {
                     noValidate
                     value={this.state.password}
                     onChange={this.onChange}
+                    required
                   />
                   {formErrors.password.length > 0 && (
                     <span className="errorMessage">{formErrors.password}</span>

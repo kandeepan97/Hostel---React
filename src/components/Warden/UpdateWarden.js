@@ -16,7 +16,7 @@ import classnames from "classnames";
             mobileNumber: "",
             email:"",
             lastName:"",
-            hostelId:"",
+            hostelid:"",
             password:""
       
         };
@@ -31,7 +31,7 @@ import classnames from "classnames";
             mobileNumber,
             email,
             lastName,
-            hostelId,
+            hostelid,
             password
         } = nextProps.warden;
 
@@ -41,7 +41,7 @@ import classnames from "classnames";
         mobileNumber,
         email,
         lastName,
-        hostelId,
+        hostelid,
         password
 
        });
@@ -68,7 +68,7 @@ import classnames from "classnames";
             mobileNumber: this.state.mobileNumber,
             email:this.state.email,
             lastName:this.state.lastName,
-            hostelId:this.state.hostelId,
+            hostelid:this.state.hostelid,
             password:this.state.password
          };
          this.props.updateWarden(updateWarden,this.props.history);
@@ -87,50 +87,44 @@ import classnames from "classnames";
                              placeholder="Warden Id"
                              name="wardenid"
                              value={this.state.wardenid} 
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
+                             
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg" 
                             placeholder="First Name"
                             name="firstName"
                             value={this.state.firstName}
-                            onChange={this.onChange}/>
+                            onChange={this.onChange}
+                            required/>
                         </div>
                         <div className="form-group">
                             <input type="text" className="form-control form-control-lg"
                              placeholder="Last Name"
                              name="lastname"
                              value={this.state.lastName}
-                             onChange={this.onChange}/>
+                             onChange={this.onChange}
+                             required/>
                         </div>
                         <div className="form-group">
                         <input type="text" className="form-control form-control-lg"
                          placeholder="Mobile Number"
                          name="mobileNumber"
                          value={this.state.mobileNumber}
-                         onChange={this.onChange}/>
+                         onChange={this.onChange}
+                         required/>
                     </div>
                     <div className="form-group">
                     <input type="text" className="form-control form-control-lg"
                      placeholder="Email"
                      name="email"
                      value={this.state.email}
-                     onChange={this.onChange}/>
+                     onChange={this.onChange}
+                     required/>
                 </div>
-                <div className="form-group">
-                <input type="text" className="form-control form-control-lg"
-                 placeholder="Hostel Id"
-                 name="hostelId"
-                 value={this.state.hostelId}
-                 onChange={this.onChange}/>
-            </div>
-            <div className="form-group">
-            <input type="text" className="form-control form-control-lg" 
-            placeholder="Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.onChange}/>
-        </div>
+                
+           
                         
                         
 

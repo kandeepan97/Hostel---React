@@ -10,7 +10,7 @@ import ViewHostelButton from "./Hostel/ViewHostelButton";
 import ViewSucessfulRegistrationButton from "./Registration/ViewSucessfulRegistrationButton";
 import ManageRegistrationButton from "./Registration/ManageRegistrationButton";
 import MyProfileButton from "./Warden/MyprofileButton";
-
+import ResetPasswordButton from "./ResetPassword/ResetPasswordButton";
 import {ReactComponent as Room} from '../assets/room.svg';
 import {ReactComponent as Student} from '../assets/student1.svg';
 import {ReactComponent as Hostel} from '../assets/hostal.svg';
@@ -22,7 +22,16 @@ import {ReactComponent as WardenView} from '../assets/dfgdg.svg';
 
 class wardenDashboard extends Component {
 
-
+  componentDidMount() {
+    const reloadCount = sessionStorage.getItem('reloadCount');
+    if (reloadCount < 1) {
+      sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+      window.location.reload(false);
+    } else {
+      sessionStorage.removeItem('reloadCount');
+    }
+    
+  }
 
   render() {
     return (
@@ -147,6 +156,17 @@ class wardenDashboard extends Component {
                   <div style={{width:'75px',height:'75px',margin:'10px'}}> <Register/></div>
 
                   <ViewSucessfulRegistrationButton /></div>
+
+                  
+                
+                
+                
+                  
+  
+                  <ResetPasswordButton/>
+
+                  
+                  
 
                   <div style={{
                     boxShadow: ' 0px 12px 32px #383B470F',
